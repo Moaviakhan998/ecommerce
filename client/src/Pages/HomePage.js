@@ -26,7 +26,7 @@ const HomePage = () => {
       try {
         setloading(true);
         const { data } = await axios.get(
-          "http://localhost:8080/api/v1/category/get-category"
+          `${process.env.REACT_APP_BACKEND_URL}/api/v1/category/get-category`
           
         );
         setloading(true)
@@ -41,7 +41,7 @@ const HomePage = () => {
     //get Total Count function
     const getTotal = async()=>{
       try {
-        const {data} = await axios.get('http://localhost:8080/api/v1/product/product-count');
+        const {data} = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-count`);
         setTotal(data?.totalcount)
       } catch (error) {
         console.log(error);
@@ -61,7 +61,7 @@ const HomePage = () => {
     const getAllProducts = async()=>{
       try {
         setloading(true)
-        const {data}=  await axios.get(`http://localhost:8080/api/v1/product/product-list/${page}`);
+        const {data}=  await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-list/${page}`);
         setloading(false)
         
         setProducts(data?.products);
@@ -93,7 +93,7 @@ const HomePage = () => {
     // Filter Function
     const filterProducts = async()=>{
       try {
-        const data = await axios.post('http://localhost:8080/api/v1/product/product-filters', {checked, radio});
+        const data = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-filters`, {checked, radio});
         setProducts(data?.data.products)
         
       } catch (error) {
@@ -108,7 +108,7 @@ const HomePage = () => {
     const loadMore = async()=>{
       try {
         setloading(true);
-        const {data} = await axios.get(`http://localhost:8080/api/v1/product/product-list/${page}`)
+        const {data} = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-list/${page}`)
        
         setProducts([...products, ...data?.products])
         setloading(false);
@@ -160,7 +160,7 @@ const HomePage = () => {
                       return(
                         <div className="col ">
                            <div className="card m-2 cardmap" style={{width: "18rem"}} >
-                           <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} className="card-img-top cardimg" alt={p.name} />
+                           <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} className="card-img-top cardimg" alt={p.name} />
                            <div className="card-body ">
                                <h5 className="card-title">{p.name}</h5>
                                <p className="card-text">{p.description}</p>

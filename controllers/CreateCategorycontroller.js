@@ -42,6 +42,7 @@ export  const GetCategoryController = async (req, res)=>{
             message: "All Category here",
             category
         })
+        console.log("Backend URL:", process.env.REACT_APP_BACKEND_URL);
     } catch (error) {
         console.log(error)
         res.status(250).send({

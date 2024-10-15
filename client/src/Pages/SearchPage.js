@@ -19,7 +19,7 @@ const SearchPage = () => {
                        return(
                         <div className="col ">
                            <div className="card m-2 cardmap" style={{width: "18rem"}} >
-                           <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} className="card-img-top cardimg" alt={p.name} />
+                           <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} className="card-img-top cardimg" alt={p.name} />
                            <div className="card-body">
                                <h5 className="card-title">{p.name}</h5>
                                <p className="card-text">{p.description}</p>

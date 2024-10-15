@@ -16,7 +16,7 @@ const CreateCategory = () => {
   const handlesubmit =  async(e)=>{
     e.preventDefault();
     try {
-      const {data} = await axios.post('http://localhost:8080/api/v1/category/create-category',{name});
+      const {data} = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/category/create-category`,{name});
       if (data?.success) {
         toast.success(`${name} is created`)
         getallcategories();
@@ -32,7 +32,7 @@ const CreateCategory = () => {
   const getallcategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/category/get-category"
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/category/get-category`
       );
       if (data.success) {
         setCategories(data.category);
@@ -50,7 +50,7 @@ const CreateCategory = () => {
   const hanldeUpdate =async (e)=>{
     e.preventDefault();
     try {
-        const {data }= await axios.put(`http://localhost:8080/api/v1/category/update-category/${selected._id}`,  {name: updatename})
+        const {data }= await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/v1/category/update-category/${selected._id}`,  {name: updatename})
         if (data.success) {
           toast.success( `${updatename} is updated`);
           setselected(null);
@@ -69,7 +69,7 @@ const CreateCategory = () => {
   const deleteCategory =async(pId)=>{
     
     try {
-     const{ data}=  await axios.delete(`http://localhost:8080/api/v1/category/delete-category/${pId}`,)
+     const{ data}=  await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/category/delete-category/${pId}`,)
       if (data.success) {
         getallcategories();
       toast("Deleted SuccessFully")

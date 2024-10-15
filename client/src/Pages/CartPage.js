@@ -45,7 +45,7 @@ const CartPage = () => {
     //Get Payment GateWay
     const getToken = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8080/api/v1/product/braintree/token')
+            const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/braintree/token`)
             setClientToken(data?.clientToken)
         } catch (error) {
             console.log(error)
@@ -59,7 +59,7 @@ const CartPage = () => {
         try {
             setLoading(true);
             const { nonce } = await instanse.requestPaymentMethod();
-          await axios.post('http://localhost:8080/api/v1/product/braintree/payments', {
+          await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/braintree/payments`, {
                 nonce, cart
             })
             setLoading(false);
@@ -92,7 +92,7 @@ const CartPage = () => {
                             return (
                                 <div className="row card flex-row mb-2 cartpagetop">
                                     <div className="col-md-4">
-                                        <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} height="100px" style={{ width: "100px" }} className="card-img-top" alt={p.name} />
+                                        <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} height="100px" style={{ width: "100px" }} className="card-img-top" alt={p.name} />
                                     </div>
                                     <div className="col-md-8">
                                         <p>{p.name}</p>

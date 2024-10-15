@@ -25,7 +25,7 @@ useEffect(()=>{
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      const {data} = await axios.put("http://localhost:8080/api/v1/auth/profile", { name, email,  password, phone, address });
+      const {data} = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/v1/auth/profile`, { name, email,  password, phone, address });
       if (data?.error) {
         toast.error(data?.message)
       } else {

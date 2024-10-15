@@ -18,7 +18,7 @@ const ProductDetail = () => {
     },[params?.slug])
     const getProduct = async()=>{
         try {
-            const {data} = await axios.get(`http://localhost:8080/api/v1/product/get-product/${params.slug}`)
+            const {data} = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/get-product/${params.slug}`)
             setProduct(data?.product)
             similarProduct(data?.product._id,data?.product.category?._id)
         } catch (error) {
@@ -28,7 +28,7 @@ const ProductDetail = () => {
     //Similar Product ApI
     const similarProduct = async(pid,cid)=>{
         try {
-            const {data} = await axios.get(`http://localhost:8080/api/v1/product/related-product/${pid}/${cid}`);
+            const {data} = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/related-product/${pid}/${cid}`);
             setRelatedProducts(data?.products);
         } catch (error) {
             console.log(error)
@@ -38,7 +38,7 @@ const ProductDetail = () => {
     <Layout>
         <div className="d-flex">
             <div className="col-md-3">
-            <img src={`http://localhost:8080/api/v1/product/product-photo/${product._id}`} className="card-img-top cardimg" style={{height: "200px", width:"200px", margin:"20px"}} alt={product.name} />
+            <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${product._id}`} className="card-img-top cardimg" style={{height: "200px", width:"200px", margin:"20px"}} alt={product.name} />
             </div>
             <div className="col-md-9 cardmap">
                 <h1 className='text-center'>Product Details</h1>
@@ -64,7 +64,7 @@ const ProductDetail = () => {
                        return(
                         <div className="col">
                            <div className="card m-2 cardmap" style={{width: "18rem"}} >
-                           <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} className="card-img-top cardimg" alt={p.name} />
+                           <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} className="card-img-top cardimg" alt={p.name} />
                            <div className="card-body">
                                <h5 className="card-title">{p.name}</h5>
                                <p className="card-text">{p.description}</p>

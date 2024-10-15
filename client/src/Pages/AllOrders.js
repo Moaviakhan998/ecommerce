@@ -10,7 +10,7 @@ const AllOrders = () => {
   const [auth, setAuth] = useAuth()
   const getOrders = async () => {
     try {
-      const { data } = await axios.get('http://localhost:8080/api/v1/auth/orders')
+      const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/auth/orders`)
       setOrders(data)
     } catch (error) {
       console.log(error)
@@ -60,7 +60,7 @@ const AllOrders = () => {
                             return (
                                 <div className="row card flex-row mb-2">
                                     <div className="col-md-4">
-                                        <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} height="100px" style={{ width: "100px" }} className="card-img-top" alt={p.name} />
+                                        <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} height="100px" style={{ width: "100px" }} className="card-img-top" alt={p.name} />
                                     </div>
                                     <div className="col-md-8">
                                         <p>{p.name}</p>

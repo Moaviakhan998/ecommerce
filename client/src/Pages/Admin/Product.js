@@ -11,7 +11,7 @@ const Product = () => {
 
     const getAllProducts = async () => {
         try {
-            const { data } = await axios.get('http://localhost:8080/api/v1/product/get-product')
+            const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/get-product`)
             setProducts(data.product);
         } catch (error) {
             console.log(error)
@@ -36,7 +36,7 @@ const Product = () => {
                         return(
                             <Link key={p._id} to={`/dashboard/admin/product/${p.slug}`} style={{textDecoration:"none", color:"black"}}>
                             <div className="card m-2" style={{width: "18rem"}} >
-                            <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} class="card-img-top" alt={p.name} />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} class="card-img-top" alt={p.name} />
                             <div className="card-body">
                                 <h5 className="card-title">{p.name}</h5>
                                 <p className="card-text">{p.description}</p>

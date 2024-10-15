@@ -23,7 +23,7 @@ const UpdateProduct = () => {
     //get single product
     const getsingleproduct =async()=>{
         try { 
-            const {data} =await axios.get(`http://localhost:8080/api/v1/product/get-product/${params.slug}`);
+            const {data} =await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/get-product/${params.slug}`);
             
             setName(data.product.name)
             setPrice(data.product.price)
@@ -47,7 +47,7 @@ const UpdateProduct = () => {
     const getallcategories = async () => {
     try {
       const { data } = await axios.get(
-        "http://localhost:8080/api/v1/category/get-category"
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/category/get-category`
       );
       if (data?.success) {
         setCategories(data?.category);
@@ -73,7 +73,7 @@ const UpdateProduct = () => {
         photo && productData.append('photo', photo)
         productData.append('category', category)
         productData.append('shipping', shipping)
-         const {data} = await axios.put(`http://localhost:8080/api/v1/product/update-product/${id}`,productData)
+         const {data} = await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/update-product/${id}`,productData)
          if (data?.success) {
               toast.success('Product updated')
               Navigate('/dashboard/admin/products')
@@ -93,7 +93,7 @@ const UpdateProduct = () => {
       if (!answer) {
         return
       }
-      await axios.delete(`http://localhost:8080/api/v1/product/delete-product/${id}`)
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/delete-product/${id}`)
       Navigate('/dashboard/admin/products')
     } catch (error) {
       console.log(error)
@@ -128,7 +128,7 @@ const UpdateProduct = () => {
                 </div>
                 ) : (
                   <div className="text-center">
-                  <img src={`http://localhost:8080/api/v1/product/product-photo/${id}`} alt="product_photo" height={'200px'} className='img img-responsive' />
+                  <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${id}`} alt="product_photo" height={'200px'} className='img img-responsive' />
                 
                 </div>
                 )

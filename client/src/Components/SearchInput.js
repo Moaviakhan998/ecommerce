@@ -8,7 +8,7 @@ const SearchInput = () => {
     const handleSubmit =async(e)=>{
         try {
             e.preventDefault();
-            const {data} = await axios.get(`http://localhost:8080/api/v1/product/search/${value.keyword}`);
+            const {data} = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/search/${value.keyword}`);
            
             setValue({...value, result: data})
             console.log(data)

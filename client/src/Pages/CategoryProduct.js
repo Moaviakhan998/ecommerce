@@ -14,7 +14,7 @@ const CategoryProduct = () => {
     const [cart, setcart] = useCart();
     const SetProductByCategory = async()=>{
         try {
-            const {data}= await axios.get(`http://localhost:8080/api/v1/product/product-category/${params.slug}`)
+            const {data}= await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-category/${params.slug}`)
             setProduct(data?.products);
             setCategory(data?.category)
         } catch (error) {
@@ -37,7 +37,7 @@ const CategoryProduct = () => {
                         return(
                          <div className="col">
                             <div className="card m-2" style={{width: "18rem"}} >
-                            <img src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
+                            <img src={`${process.env.REACT_APP_BACKEND_URL}/api/v1/product/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
                             <div className="card-body">
                                 <h5 className="card-title">{p.name}</h5>
                                 <p className="card-text">{p.description}</p>
