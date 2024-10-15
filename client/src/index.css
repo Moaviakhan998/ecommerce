@@ -1,0 +1,338 @@
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+/* font-family: 'Playfair Display', serif; */
+
+/*font-family: 'Poppins', sans-serif;*/
+
+/*Navbar Css*/
+
+
+
+.navbar{
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  margin-right: 5px;
+  gap: 20px !important;
+  text-transform: uppercase;
+  box-shadow: 0 8px 6px -6px gray;
+  --webkit-box-shadow: 0 8px 6px -6px gray;
+  border-bottom: 0.5px solid gray !important; 
+}
+.nav-item{
+  gap: 30px;
+  margin: 15px !important;
+}
+
+.nav-link{
+  font-weight: 400 !important;
+}
+/* hr{
+  width: 30px;
+  height: 3px;
+  background: rgb(97, 8, 8);
+} */
+.active{
+  border-bottom: 2px solid black;
+}
+.navbar-brand{
+  font-weight: 700;
+  font-family: 'roboto', sans-serif;
+  letter-spacing: 2px;
+}
+.footer{
+  color: white;
+ padding: 25px;
+ background: #000000;
+ background: linear-gradient(to right, #434343, #000000);
+}
+.footer a{
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  margin: 10px;
+}
+.footer a:hover{
+  color: #ffefba;
+  border-bottom: 1px solid #ffefba;
+}
+.pagenotfoud{
+  align-items: center;
+  text-align: center;
+  padding: 90px;
+ 
+}
+.pagenotfoud h1{
+  font-size: 100px;
+}
+.pagenotfoud p{
+  font-size: 60px;
+}
+.pagenotfoud button{
+  background: #ffefba;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 20px;
+  font-weight: 500;
+  width: 120px;
+}
+
+/*======================================
+==================REgister Page CSS */
+.loginsignup-login{
+  margin-top: 20px;
+  color: #5c5c5c;
+  font-size: 18px;
+  font-weight: 500;
+}
+.loginsignup-login span{
+  color: #ff4141;
+  font-weight: 600;
+}
+.loginsignup-agree {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  gap: 10px;
+  color: #5c5c5c;
+  font-size: 18px;
+  font-weight: 500;
+}
+.inputtag{
+  width: 30px !important;
+  height:30px !important;
+  margin-left: 30px;
+  margin-bottom: auto;
+  border: 1px solid #5c5c5c;
+  cursor: pointer;
+  
+}
+.signuppage{
+  background-color: aliceblue;
+  margin-top: 30px !important;
+  margin-bottom: 30px !important;
+  width: 700px;
+  height: 750px;
+margin: auto;
+box-shadow:   5px 5px 25px 5px  #548762;
+
+}
+ label{
+  font-size: 20px;
+  font-weight: 600;
+  display: none;
+  text-align: center;
+  padding-left: 95px;
+  padding-bottom: 10px;
+  padding-top: 3px;
+}
+.signuppage input{
+  width: 300px;
+  height: 40px;
+  font-size: large;
+  align-content: center;
+  /* border-radius: 10px; */
+  background-color: #f2f7f8;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid rgb(26, 27, 24);
+}
+.sbbtn{
+  font-size: 25px;
+  width: 300px;
+  height: 50px;
+  margin-top: 20px;
+border-radius: 10px;
+border: none;
+background-color: green;
+color: white;
+}
+.sbbtn:hover{
+  background-color: aqua;
+  color: #282c34;
+  border: none;
+}
+.sbbtn:active{
+  background-color: rgb(83, 95, 105);
+  color: #f2f7f8;
+}
+.inputsdiv{
+  text-align: center;
+  display: block;
+}
+/*===============================
+Login CSS*/
+.submitbtn-sub{
+  background: rgb(113, 113, 184);
+  width: 150px !important;
+  height: 50px !important;
+  margin-right: 30px !important;
+  
+}
+.submitbtn-new{
+  font-size: 25px;
+  width: 150px;
+  height: 50px;
+  margin-top: 20px;
+border-radius: 10px;
+border: none;
+background-color: green;
+color: white;
+
+}
+.login-page{
+  height: 400px !important;
+  width: 500px;
+  background: #ffefba;
+  align-items: center;
+  margin: auto;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px 5px #96a4b3;
+}
+.logindiv input{
+  width: 300px;
+  height: 40px;
+  border-bottom:2px solid #000000 !important;
+  border-radius: 0;
+  align-content: center !important;
+  border: none;
+  margin: auto;
+  margin-left: 100px;
+}
+.logindiv input:focus-within{
+  border: none;
+  outline:none;
+}
+.forgetpassword{
+  height: 400px !important;
+}
+.forgetbtn{
+  width: 250px !important;
+}
+.filterside{
+  border: 1px solid black;
+  margin-left: 30px;
+  height: 600px;
+  box-shadow: 5px 5px 5px #686161;
+}
+.addtocartbtn{
+  background: rgb(30, 43, 3);
+  
+}
+.addtocartbtn:hover{
+  background: #ffefba;
+  color: #000000;
+}
+.cardmap:hover{
+  background: #f2f7f8;
+  box-shadow: 5px 5px 5px #686161;
+}
+.cardimg{
+  background: #070303;
+  border: 1px solid goldenrod;
+  box-shadow: 5px 5px 5px #686161;
+
+}
+.morebtn{
+  background: #20B2AA;
+  color: #000000;
+}
+.morebtn:hover{
+  color: #f2f7f8;
+  background: #483D8B;
+  box-shadow: -2px -2px  #888888;
+}
+.loadmorebtn{
+  background: #ADD8E6;
+  border: none;
+  width: 300px;
+}
+.loadmorebtn:hover{
+  background: #20B2AA;
+}
+.bannerimmg{
+  background-image: url('../public/images/banner.png');
+  height: 300px;
+  background-size: cover;
+
+ 
+}
+
+.navbaritem{
+  /* height: 70px; */
+  margin-bottom: 10px;
+}
+.navhome:hover{
+  box-shadow: 2px 5px 5px 5px #686161;
+}
+.searchbtn{
+  background: #000000;
+  color: white;
+  width: 100px;
+  border-radius: 0%;
+  height: 40px;
+}
+.searchinput{
+  border: none;
+  background: navajowhite;
+  height: 40px;
+}
+.searchbtn:hover{
+  background: #555a63;
+}
+.searchinput:focus{
+  outline: none;
+  /* border: 1px solid red; */
+  box-shadow: none;
+  
+}
+.cartpagetop{
+  border: 0.5px solid gainsboro;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px gainsboro;
+}
+.cardrightside{
+  border: 0.5px solid gainsboro;
+ margin-left: 50px;
+ padding-right: 90px;
+ height: 600px;
+text-align: center;
+align-items: center;
+}
+@media all and (max-width: 800px){
+  .bannerimmg{background-size : cover;
+  height: 100px;}
+  .filterside{
+    margin-left: 0px;
+    height: 500px;
+    width: 100%;
+  }
+}
+@media all and (min-width: 806px){
+  .filterside{
+ 
+    height: 800px;
+   
+  }
+}
