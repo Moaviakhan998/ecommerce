@@ -13,3 +13,5 @@ const connectDB = async () => {
         throw new Error('MongoDB connection timeout or error');
     }
 };
+
+export default connectDB;
