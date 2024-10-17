@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
+import mongoose from 'mongoose';  // <-- Import mongoose here
 import connectDB from './db.js';
 import authroute from './Routes/Authroute.js';
 import CategoryRoute from './Routes/CategoryRoute.js';
@@ -25,6 +26,15 @@ app.use(morgan('dev'));
 app.use((req, res, next) => {
     req.setTimeout(10000); // 10 seconds
     next();
+});
+
+// MongoDB connection status route
+app.get('/api/v1/mongo-status', (req, res) => {
+    if (mongoose.connection.readyState === 1) {
+        res.status(200).json({ success: true, message: 'MongoDB is connected',mongoURL: process.env.MONGO_URL });
+    } else {
+        res.status(500).json({ success: false, message: 'MongoDB is not connected' });
+    }
 });
 
 // routes
