@@ -23,5 +23,5 @@
       "dest": "client/build/$1"
     }
   ],
-  "installCommand": "cd backend && npm install --legacy-peer-deps && cd ../client && npm install --legacy-peer-deps"
+  "installCommand": "npm install --legacy-peer-deps"
 }
