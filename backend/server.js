@@ -33,7 +33,7 @@ app.get('/api/v1/mongo-status', (req, res) => {
     if (mongoose.connection.readyState === 1) {
         res.status(200).json({ success: true, message: 'MongoDB is connected',mongoURL: process.env.MONGO_URL });
     } else {
-        res.status(500).json({ success: false, message: 'MongoDB is not connected' });
+        res.status(500).json({ success: false, message: 'MongoDB is not connected',mongoURL: process.env.MONGO_URL });
     }
 });
 
