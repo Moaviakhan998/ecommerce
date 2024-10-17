@@ -59,43 +59,47 @@ export const registerController =async(req, res)=>{
 
 // LOGIN CONTROLLER
 
-export const LoginController =async(req, res)=>{
+export const LoginController = async (req, res) => {
     try {
-        const {email, password} = req.body;
-        //validation 
+        const { email, password } = req.body;
+
+        // Validation
         if (!email || !password) {
-            return res.status(204).send({
-                success : false,
-                message: "Invalid email or password"
-            })
+            return res.status(400).send({
+                success: false,
+                message: "Email and password are required"
+            });
         }
 
-        //check user
-        const user = await Usermodel.findOne({email})
+        // Check user
+        const user = await Usermodel.findOne({ email });
         if (!user) {
-            return res.status(200).send({
+            return res.status(401).send({
                 success: false,
-                message: "Email is not register"
-            })
-        }
-        // compare password 
-        const match = await comparePassword(password, user.password)
-        if (!match) {
-            return res.status(200).send({
-                success: false,
-                message : "invalid Password"
-            })
+                message: "Invalid credentials"
+            });
         }
 
-        // JWT Token creating
-        const token = await JWT.sign({_id: user._id}, process.env.JWT_SECRET, {
+        // Compare password
+        const match = await comparePassword(password, user.password);
+        if (!match) {
+            return res.status(401).send({
+                success: false,
+                message: "Invalid credentials"
+            });
+        }
+
+        // JWT Token creation
+        const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
             expiresIn: "7d",
         });
+
+        // Send response
         res.status(200).send({
             success: true,
-            message: "Login Successfully",
-            user:{
-                _id : user._id,
+            message: "Login Successful",
+            user: {
+                _id: user._id,
                 name: user.name,
                 email: user.email,
                 phone: user.phone,
@@ -103,16 +107,18 @@ export const LoginController =async(req, res)=>{
                 role: user.role
             },
             token,
-        })
+        });
+
     } catch (error) {
-        console.log(error)
+        console.log(error);
         res.status(500).send({
             success: false,
-            message: 'Error in Login',
-            error
-        })
+            message: "Error in Login",
+            error: error.message
+        });
     }
 };
+
 //forget password controller
 export const ForgetpasswordController = async (req, res)=>{
     
